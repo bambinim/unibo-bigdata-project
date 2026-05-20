@@ -58,7 +58,7 @@ trait Job {
     // Job 3: Average trips by month
     val yearsDelta = ChronoUnit.YEARS.between(tripDataMinDate, tripDataMaxDate)
     val tripsPerMonth = tripRdd
-      .map(t => (t._2.getMonth.toString, 1))
+      .map(t => (t._1.getMonth.toString, 1))
       .reduceByKey(_ + _)
       .mapValues(_ / yearsDelta)
     writeResults(tripsPerMonth.toDF("month", "trips"), "3_trips_per_month")
