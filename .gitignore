@@ -1,0 +1,17 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# Ignore Kotlin plugin data
+.kotlin
+
+.metals
+.vscode
+.scala-build
+.DS_Store
+.bloop
+/out
+.ipynb_checkpoints
+

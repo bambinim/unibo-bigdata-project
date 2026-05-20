@@ -1,0 +1,54 @@
+{
+	"name": "Spark Development",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"mounts": [
+		"source=${localEnv:HOME}/.gemini,target=/home/user/.gemini,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.ssh/id_rsa,target=/home/user/.ssh/id_rsa,type=bind,readonly",
+		"source=${localEnv:HOME}/.aws,target=/home/user/.aws,type=bind,consistency=cached"
+	],
+	"workspaceFolder": "/workspace",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "17",
+			"installMaven": "false",
+			"installGradle": "false"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "22"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-toolsai.jupyter",
+				"ms-toolsai.jupyter-renderers",
+				"ms-toolsai.vscode-jupyter-cell-tags",
+				"ms-toolsai.vscode-jupyter-slideshow",
+				"ms-toolsai.jupyter-keymap",
+				"ms-python.black-formatter",
+				"ms-python.debugpy",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.vscode-python-envs",
+				"ms-azuretools.vscode-containers",
+				"vscjava.vscode-gradle",
+				"google.geminicodeassist",
+				"vscjava.vscode-java-debug",
+				"redhat.java",
+				"vscjava.vscode-java-pack",
+				"vscjava.vscode-java-test",
+				"vscjava.vscode-maven",
+				"vscjava.vscode-java-dependency",
+				"scalameta.metals",
+				"docker.docker",
+				"google.gemini-cli-vscode-ide-companion"
+			]
+		}
+	},
+	"remoteUser": "user",
+	"updateRemoteUserUID": true,
+	"postCreateCommand": ".devcontainer/init.sh"
+}
